@@ -71,19 +71,19 @@ else{
 }
 
 //login controller
-const loginUser=async(req,res)=>{
+  const loginUser=async(req,res)=>{
     try{
         const {username,password}=req.body;
         const user= await User.findOne({username})
-        const decryptPassword= bcrypt.compare(password,user.password)
+        const decryptPassword= await bcrypt.compare(password,user.password)
         
         if(!user){
-            return res.json({message:"user doesn't exist"})
+            return res.status(404).json({message:"user doesn't exist"})
         }
        
             if(!decryptPassword){
 
-            return res.status(201).json({
+            return res.status(401).json({
                 message:" invalid credentials"
             })
         
