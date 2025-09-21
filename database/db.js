@@ -7,7 +7,7 @@ const  connectToDB= async()=>{
 
  await mongoose.connect(MONGO_CONNECT)
 
- console.log('connection successful');
+ console.log('connection successfully');
  
     }catch(e){
 
