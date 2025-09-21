@@ -99,7 +99,7 @@ const loginUser=async(req,res)=>{
 
 res.status(200).json({success:true,
     message:'logged in sucessful',accessToken,
-    originalPassword:user.password
+  
 })
          
     }
